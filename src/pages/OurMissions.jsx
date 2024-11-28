@@ -7,7 +7,7 @@ function OurMissions() {
    return (
       <>
          <section
-            className="relative mt-[30px] bg-cover h-full w-full sm:bg-contain  "
+            className="relative bg-cover h-full w-full sm:bg-contain  "
             style={{
                backgroundImage: `url(${visions})`,
                backgroundPosition: 'center',

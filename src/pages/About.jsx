@@ -159,73 +159,80 @@ function About() {
       </div>
 
 
-  
-  <div className="font-sans bg-white px-4 py-5 mb-10">
-    <div className="grid lg:grid-cols-2 gap-12 lg:max-w-6xl max-w-2xl mx-auto">
-      <div className="text-left">
-        <h2 className="text-gray-800 text-3xl font-bold mb-6">
-        WE SPECIALIZE IN
-        </h2>
-        <p className=" text-xl text-black ml-2">
-        ➣ Enhance Email Security Spoofing-Spam Filtering
-        </p>
-        <p className="text-xl  text-black ml-2">
-        ➣ Mail Archiving Solutions online & on-premises
-        </p>
-        <p className="text-xl text-black ml-2">
-        ➣ Multi-Layer Firewall, Remote Connectivity and VPN Solutions
-        </p>
-        <p className="text-xl text-black ml-2">
-        ➣ Enterprise Remote Application Server with Ransomware Protection
-        </p>
 
-        <p className="text-xl text-black ml-2">
-        ➣ Server High Availability - DR Backup Solutions
-        </p>
-        <p className="text-xl text-black ml-2">
-        ➣ Ransomware-Malware Protection & Prevention Solutions
-        </p>
+      <div className="font-sans bg-white px-4 py-5 mb-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:max-w-6xl max-w-2xl mx-auto" data-aos="fade-up">
+          <div className="text-left">
+            <h2 className="text-gray-800 text-3xl font-bold mb-6">WE SPECIALIZE IN</h2>
+            <ul className="list-none">
+              {/* List item styling */}
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Enhance Email Security Spoofing-Spam Filtering
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Mail Archiving Solutions online & on-premises
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Multi-Layer Firewall, Remote Connectivity and VPN Solutions
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Enterprise Remote Application Server with Ransomware Protection
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Server High Availability - DR Backup Solutions
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Ransomware-Malware Protection & Prevention Solutions
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Microsoft Dynamics 365 Implementation Consultancy
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                IT Network Performance Tuning
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                IT Security Awareness Training
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                IT Network Security, Network Documentation & Base lining
+              </li>
+              <li className="text-xl text-black flex items-start">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                IT Implementation, Integration & Managed Service
+              </li>
+            </ul>
+          </div>
 
-
-        <p className="text-xl text-black ml-2">
-        ➣ Microsoft Dynamics 365 Implementation Consultancy
-        </p>
-        <p className="text-xl text-black ml-2">
-        ➣ IT Network Performance Tunning
-        </p>
-
-        <p className="text-xl text-black ml-2">
-        ➣ IT Security Awareness Training
-        </p>
-        <p className="text-xl text-black ml-2">
-        ➣ IT Network Security, Network Documentation & Base lining
-        </p>
-
-        <p className="text-xl text-black ml-2">
-        ➣ IT Implementation, Integration & Managed Service
-        </p>
-      
-
-
+          <div>
+            <img
+              src={integration}
+              alt="Placeholder Image"
+              className="rounded-lg object-contain w-full h-full"
+            />
+          </div>
+        </div>
       </div>
-      <div>
-        <img
-          src={integration}
-          alt="Placeholder Image"
-          className="rounded-lg object-contain w-full h-full"
-        />
-      </div>
-    </div>
-  </div>
 
 
 
 
 
-     
-            
 
-      
+
+
+
+
+
     </>
   );
 }

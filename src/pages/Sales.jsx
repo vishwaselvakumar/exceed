@@ -225,8 +225,8 @@ const Sales = () => {
 
                 <div className="flex flex-col">
                   <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-100">Tel: +971 55 304 3964</p>
-                  <p className="text-gray-100">WhatsApp: +971 55 304 39641</p>
+                  <p className="text-gray-100">Tel: +971 55 305 3964</p>
+                  <p className="text-gray-100">WhatsApp: +971 55 305 39641</p>
 
                   <div className='mt-5'>
                     <h2 className="text-2xl">Send an E-mail</h2>
