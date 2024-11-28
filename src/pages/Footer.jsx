@@ -9,13 +9,13 @@ const Footer = () => {
     return (
         <>
 
-<section class="py-2 bg-green-400 font-bold text-black text-right px-10">
-  <div class="flex flex-col items-center md:flex-row justify-evenly text-sm ml-14" >
-    <p><strong>Mobile : </strong>+971 55 304 3964</p>
-    <p><strong>Email :</strong> enquiries@exceednetsec.com</p>
-    <p><strong>Web : <a href="http://www.exceednetsec.com"> </a></strong> http://www.exceednetsec.com</p>
-  </div>
-</section>
+            <section class="py-2 bg-green-500 font-bold text-black text-right px-10">
+                <div class="flex flex-col items-center md:flex-row justify-evenly text-sm ml-14" >
+                    <p><strong>Mobile : </strong>+971 55 305 3964</p>
+                    <p><strong>Email :</strong> enquiries@exceednetsec.com</p>
+                    <p><strong>Web : <a href="http://www.exceednetsec.com"> </a></strong> http://www.exceednetsec.com</p>
+                </div>
+            </section>
 
             <footer class="w-full bg-gray-700">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -61,15 +61,15 @@ const Footer = () => {
                             <ul class="text-sm  transition-all duration-500">
                                 <li class="mb-6"><a href="/" class="text-white">Home</a></li>
                                 <li class="mb-6"><a href="/About" class=" text-white">About Us</a></li>
-                                <li class="mb-6"><a href="/help" class=" text-white">Help </a></li>
-                                <li><a href="/sales" class=" text-white">Sales</a></li>
+                                <li class="mb-6"><a href="/help" class=" text-white">Support</a></li>
+                                <li><a href="/help" class=" text-white">Contact</a></li>
                             </ul>
                         </div>
 
                         <div class="lg:mx-auto text-center sm:text-left">
                             <h4 class="text-lg text-white font-medium mb-7">Contact</h4>
                             <ul class="text-sm transition-all duration-500">
-                                <li class="mb-6"><a href="javascript:;" class="text-white">+ 971 55 304 3964</a></li>
+                                <li class="mb-6"><a href="javascript:;" class="text-white">+ 971 55 305 3964</a></li>
                                 <li class="mb-6"><a href="mailto:enquiries@exceedme.com" class="text-white">enquiries@exceedme.com</a></li>
                                 <li class="mb-6"><a href="mailto:helpdesk@exceedme.com" class="text-white">helpdesk@exceedme.com</a></li>
                                 <li class="mb-6 text-white">Office #212, Arzoo Building, AI Quasis 2, Dubai, UAE.</li>

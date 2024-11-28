@@ -91,7 +91,7 @@ const Contact = () => {
 
   return (
     <>
-      <div id='contact' className="flex justify-center items-center h-screen w-full mt-10  bg-no-repeat" style={{ backgroundImage: `url(${bg})` }}>
+      <div id='contact' className="flex justify-center items-center h-screen w-full bg-no-repeat" style={{ backgroundImage: `url(${bg})` }}>
         <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
           <form onSubmit={handleSubmit}>
             <div className="w-full bg-white mt-10 p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
@@ -217,8 +217,8 @@ const Contact = () => {
 
                 <div className="flex flex-col">
                   <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-100">Tel: +971 55 304 3964</p>
-                  <p className="text-gray-100">WhatsApp: +971 55 304 3964</p>
+                  <p className="text-gray-100">Tel: +971 55 305 3964</p>
+                  <p className="text-gray-100">WhatsApp: +971 55 305 3964</p>
 
                   <div className='mt-5'>
                     <h2 className="text-2xl">Send an E-mail</h2>
