@@ -61,7 +61,7 @@ const Footer = () => {
                             <ul class="text-sm  transition-all duration-500">
                                 <li class="mb-6"><a href="/" class="text-white">Home</a></li>
                                 <li class="mb-6"><a href="/About" class=" text-white">About Us</a></li>
-                                <li class="mb-6"><a href="/help" class=" text-white">Support</a></li>
+                                <li class="mb-6"><a href="/help" class=" text-white">Help Desk</a></li>
                                 <li><a href="/help" class=" text-white">Contact</a></li>
                             </ul>
                         </div>
@@ -69,7 +69,7 @@ const Footer = () => {
                         <div class="lg:mx-auto text-center sm:text-left">
                             <h4 class="text-lg text-white font-medium mb-7">Contact</h4>
                             <ul class="text-sm transition-all duration-500">
-                                <li class="mb-6"><a href="javascript:;" class="text-white">+ 971 55 305 3964</a></li>
+                                <li class="mb-6"><a href="javascript:;" class="text-white">Tel: + 971 55 305 3964</a></li>
                                 <li class="mb-6"><a href="mailto:enquiries@exceedme.com" class="text-white">enquiries@exceedme.com</a></li>
                                 <li class="mb-6"><a href="mailto:helpdesk@exceedme.com" class="text-white">helpdesk@exceedme.com</a></li>
                                 <li class="mb-6 text-white">Office #212, Arzoo Building, AI Quasis 2, Dubai, UAE.</li>
@@ -81,9 +81,10 @@ const Footer = () => {
                             <h4 class="text-lg text-white font-medium mb-7">Key Solutions</h4>
                             <ul class="text-sm  transition-all duration-500">
                                 <li class="mb-6"><a href="javascript:;" class="text-white">Mail Security</a></li>
-                                <li class="mb-6"><a href="javascript:;" class=" text-white">Microsoft Dynamics 365</a></li>
-                                <li class="mb-6"><a href="javascript:;" class=" text-white">Duel Firewall</a></li>
-                                <li><a href="javascript:;" class=" text-white">Backup Protections</a></li>
+                                <li class="mb-6"><a href="javascript:;" class=" text-white">Multi Layer Firewall
+                                </a></li>
+                                <li class="mb-6"><a href="javascript:;" class=" text-white">e-Mail Archiving</a></li>
+                                <li><a href="javascript:;" class=" text-white">DR/Backup</a></li>
                             </ul>
                         </div>
 

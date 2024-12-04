@@ -38,7 +38,7 @@ const Services = () => {
                 imgSrc: two,
                 title: "Multi Layer Firewall",
                 description:
-                  "Our dual-layer firewall architecture significantly enhances security by integrating two layers of protection. It meticulously analyzes both incoming and outgoing network traffic, providing robust defense against potential threats and ensuring a secure network environment.",
+                  "Our multi-layer firewall architecture significantly enhances security by integrating two layers of protection. It meticulously analyzes both incoming and outgoing network traffic, providing robust defense against potential threats and ensuring a secure network environment.",
               },
               {
                 imgSrc: mail,
@@ -60,7 +60,7 @@ const Services = () => {
                 <div className="min-h-[256px]">
                   <img
                     alt={title}
-                    className="w-full object-cover h-60"
+                    className="w-full object-fit h-60"
                     src={imgSrc}
                   />
                 </div>
@@ -68,7 +68,7 @@ const Services = () => {
                   <h3 className="text-gray-800 text-xl font-bold text-center">
                     {title}
                   </h3>
-                  <p className="mt-4 text-md text-black leading-relaxed text-justify flex-grow">
+                  <p className="mt-4 text-md text-black leading-relaxed flex-grow">
                     {description}
                   </p>
                   <Link to="/services">
