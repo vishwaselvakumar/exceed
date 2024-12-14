@@ -7,7 +7,6 @@ const Cta = () => {
   const dispatch = useDispatch();
 
   const { banner } = useSelector((state) => state.banner.getBanner);
-  // get banner content
   useEffect(() => {
     dispatch(getBannerContent());
   }, [dispatch,banner]);
@@ -19,10 +18,10 @@ const Cta = () => {
     >
       <div className="mx-8 w-full h-[25rem] text-center lg:text-left py-16 px-12 flex lg:justify-between items-center">
         <div className="w-full flex flex-col lg:flex-row lg:justify-around">
-          {/* <div className="mb-4">
+          <div className="mb-4">
                         <p className='text-2xl md:text-4xl font-bold mb-4'>Are you ready to scale your business?</p>
                         <p className="text-lg md:text-2xl">Get in touch and let us build something amazing <span className='font-black'>together!</span></p>
-                    </div> */}
+                    </div>
        <div className="mb-4">
   <p className="text-2xl md:text-4xl font-bold mb-4">
     {banner && banner[0]?.title ? (

@@ -41,15 +41,17 @@ const Clients = () => {
           </h2>
         </div>
 
-        <div className="p-4 mb-5 sm:p-10 mb-5">
+        <div className="p-4 sm:p-10 mb-5">
           <div className="w-full overflow-hidden">
             <div className="flex space-x-6 sm:space-x-16 animate-infinite-scroll whitespace-nowrap">
-              {brandData.map((item, index) => (
+              {brandData.map((item) => (
                 <img
-                  key={index}
+                  key={item.id}
                   loading="lazy"
                   src={item.img}
-                  className="h-8 sm:h-12 md:h-16 lg:h-12"
+                  className={`w-36 sm:w-36 md:w-36 lg:w-36 ${
+                    [8, 9, 10, 11, 12, 14].includes(item.id) ? "h-8 mt-3" : "h-10 sm:h-12 md:h-16 lg:h-12"
+                  }`}
                   alt={item.text}
                 />
               ))}

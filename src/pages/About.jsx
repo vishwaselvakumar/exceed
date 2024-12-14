@@ -160,53 +160,53 @@ function About() {
 
 
 
-      <div className="font-sans bg-white px-4 py-5 mb-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:max-w-6xl max-w-2xl mx-auto" data-aos="fade-up">
+      <div className="font-sans bg-white px-4 py-5 mb-10" data-aos="fade-up">
+        <div className="grid lg:grid-cols-2 gap-8 lg:max-w-6xl max-w-2xl mx-auto" >
           <div className="text-left">
-            <h2 className="text-gray-800 text-3xl font-bold mb-6">WE SPECIALIZE IN</h2>
+            <h2 className="text-gray-800 text-3xl font-bold mb-6 -ml-2">WE SPECIALIZE IN</h2>
             <ul className="list-none">
               {/* List item styling */}
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4 ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Enhance Email Security Spoofing-Spam Filtering
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Mail Archiving Solutions online & on-premises
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Multi-Layer Firewall, Remote Connectivity and VPN Solutions
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Enterprise Remote Application Server with Ransomware Protection
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Server High Availability - DR Backup Solutions
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Ransomware-Malware Protection & Prevention Solutions
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 Microsoft Dynamics 365 Implementation Consultancy
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 IT Network Performance Tuning
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 IT Security Awareness Training
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 IT Network Security, Network Documentation & Base lining
               </li>
-              <li className="text-xl text-black flex items-start">
+              <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
                 IT Implementation, Integration & Managed Service
               </li>
@@ -222,17 +222,6 @@ function About() {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
     </>
   );
 }

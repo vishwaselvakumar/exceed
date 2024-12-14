@@ -36,21 +36,18 @@ function App() {
   const { userInfo } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    // Reset scroll behavior
     document.querySelector("html").style.scrollBehavior = "auto";
     window.scroll({ top: 0 });
     document.querySelector("html").style.scrollBehavior = "";
   }, [location.pathname]);
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init();
     AOS.refresh();
   }, []);
 
   useEffect(() => {
-    // Apply zoom effect
-    document.body.style.zoom = "83%";
+    document.body.style.zoom = "84%";
   }, []);
 
   return (
@@ -80,7 +77,6 @@ function App() {
           <Route path="/register" element={<Registerform />} />
           <Route path="/servicePage/:id" element={<DynamicPage />} />
 
-          {/* Outlet components */}
           <Route path="/Admindashboard" element={<Dashboard />}>
             <Route path="service-cards/:id" element={<ServiceCardDeatails />} />
             <Route path="servicecard-create" element={<ServiceCardCreateForm />} />
@@ -107,7 +103,7 @@ function App() {
           </Link>
           <Link
             to="/help"
-            className="bg-[#67f529] text-black font-xl font-bold rounded-full h-[70px] w-[70px]  text-center  px-4 py-2 flex items-center justify-center hover:bg-[#000000] transition duration-300 ease-in-out shadow-lg"
+            className="bg-[#67f529] text-black font-xl font-bold rounded-full h-[70px] w-[70px]  text-center  px-4 py-2 flex items-center justify-center hover:bg-[#ffffff] transition duration-300 ease-in-out shadow-lg"
           >
             Help Desk
           </Link>

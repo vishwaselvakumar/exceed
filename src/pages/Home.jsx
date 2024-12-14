@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Clients from './Clients';
-import Cta from './Cta';
+// import Cta from './Cta';
 
 import Hero from './Hero';
 import Intro from './Intro';
@@ -21,7 +21,7 @@ const Home = () => {
             <Services />
             {/* <Portfolio /> */}
             <Clients />
-            <Cta/>
+            {/* <Cta/> */}
           
         </>
 

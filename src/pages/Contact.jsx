@@ -8,6 +8,9 @@ import bg from '../images/contactus.jpg'
 import bg2 from '../images/contactus 2.png'
 import bg3 from '../images/contactus 3.png'
 import bg4 from '../images/contactus 4.png'
+import { BsWhatsapp } from "react-icons/bs";
+import whats from "../images/pics/whatsapp.png"
+
 const Contact = () => {
   useEffect(() => {
     // 👇️ scroll to top on page load
@@ -196,37 +199,42 @@ const Contact = () => {
               </div>
             </div>
           </form>
-          <div className="w-full  lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-900 rounded-2xl hidden lg:block">
+          <div className="w-full  lg:translate-y-[-9rem] lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-900 rounded-2xl hidden lg:block">
             <div className="flex flex-col text-white">
-              <div className="flex my-4 w-2/3 lg:w-3/4">
+              <div className="flex my-4 w-3/3 lg:w-5/5">
                 <div className="flex flex-col">
                   <i className="fas fa-map-marker-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
                   <h2 className="text-2xl">Office Address</h2>
-                  <p className="text-gray-100">Office # 212, Arzoo Building,<br />
+                  <p className="text-gray-100"># 212, Arzoo Building,
                     Al Quasis 2, Dubai UAE.
                   </p>
                 </div>
               </div>
 
-              <div className="flex my-4 w-2/3 lg:w-1/2">
+              <div className="flex my-4 w-3/3 lg:w-2/2">
                 <div className="flex flex-col">
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
 
                 <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
+                  <h2 className="text-2xl">Contact US</h2>
                   <p className="text-gray-100">Tel: +971 55 305 3964</p>
-                  <p className="text-gray-100">WhatsApp: +971 55 305 3964</p>
-
-                  <div className='mt-5'>
-                    <h2 className="text-2xl">Send an E-mail</h2>
-                    <a href='mailto:enquiries@exceedme.com' className="block text-gray-100">enquiries@exceedme.com</a>
-                    <a href='mailto:helpdesk@exceedme.com' className="block text-gray-100">helpdesk@exceedme.com</a>
+                  <div className="flex items-center text-gray-100">
+                    {/* <BsWhatsapp className="mr-2 w-4" /> */}
+                    <a href="https://wa.me/+971555696711" target='_blank'>
+                    <img src={whats} alt="" className='w-7 h-7 mr-1' /></a>
+                    <span> <a href="https://wa.me/+971555696711" target='_blank'>+971 555 696 711</a></span>
                   </div>
 
+                  <div className="mt-5">
+                    <h2 className="text-2xl">Send an E-mail</h2>
+                    <a href="mailto:enquiries@exceedme.com" className="block text-gray-100">enquiries@exceedme.com</a>
+                    <a href="mailto:helpdesk@exceedme.com" className="block text-gray-100">helpdesk@exceedme.com</a>
+                  </div>
                 </div>
+
               </div>
 
               <div className="flex my-4 w-2/3 lg:w-1/2">

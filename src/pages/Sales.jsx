@@ -3,11 +3,15 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendSalesMessage, resetSalesState } from '../store/sales/salesSlice';
+import { sendContactMessage, resetContactState } from '../store/contactUs/contactus';
 import bg from '../images/contactus.jpg'
-import bg2 from '../images/contactus2.jpg'
+import bg2 from '../images/contactus 2.png'
+import bg3 from '../images/contactus 3.png'
+import bg4 from '../images/contactus 4.png'
+import { BsWhatsapp } from "react-icons/bs";
+import whats from "../images/pics/whatsapp.png"
 
-const Sales = () => {
+const Contact = () => {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -27,42 +31,46 @@ const Sales = () => {
 
   useEffect(() => {
     if (success) {
+      Notiflix.Report.success("Message Sent", "Your message has been sent successfully.", "Okay");
       clearInput();
-      dispatch(resetSalesState());
+      dispatch(resetContactState());
     }
 
     if (error) {
       Notiflix.Report.failure("Error", error.message || "Something went wrong.", "Okay");
     }
   }, [success, error, dispatch]);
+
   const clearErrors = () => {
     setErrors([]);
   };
 
   const clearInput = () => {
-    setFirstName('');
-    setcompanyname('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
-    setCaptchaValue(null);
+    setFirstName("");
+    setCompanyName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
   };
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
   };
 
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!captchaValue || !firstname || !email || !message || !phone) {
-      Notiflix.Report.failure("Fill the all field", "Please complete the CAPTCHA", "Okay");
+    if (!firstname || !email || !phone || !message || !companyname) {
+      Notiflix.Report.failure("Form Incomplete", "Please fill in all fields before sending.", "Okay");
       return;
     }
 
-    dispatch(sendSalesMessage({
+    if (!captchaValue) {
+      Notiflix.Report.failure("Captcha Required", "Please complete the CAPTCHA", "Okay");
+      return;
+    }
+
+    dispatch(sendContactMessage({
       firstname,
       email,
       phone,
@@ -70,18 +78,25 @@ const Sales = () => {
       companyname,
       captcha: captchaValue,
     }));
-    clearInput()
-  };
 
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Sending...";
+
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Send Message";
+    }, 3000);
+  };
   return (
     <>
-      <div id='contact' className="flex justify-center items-center h-screen w-full  bg-no-repeat" style={{ backgroundImage: `url(${bg2})` }}>
+      <div id='contact' className="flex justify-center items-center h-screen w-full bg-no-repeat" style={{ backgroundImage: `url(${bg})` }}>
         <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
           <form onSubmit={handleSubmit}>
-            <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
+            <div className="w-full bg-white mt-10 p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
               <div className="flex">
-                <h1 className="font-bold text-center lg:text-left text-blue-400 uppercase text-4xl">
-                  Sales Enquiry
+                <h1 className="font-bold text-center lg:text-left text-black uppercase text-4xl  underline decoration-[#79df13] underline-offset-8">
+                  SALES ENQUIRY
                 </h1>
               </div>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
@@ -172,71 +187,51 @@ const Sales = () => {
                 <button
                   type="submit"
                   id="submitBtn"
-                  className="uppercase text-sm font-bold tracking-wide bg-gray-500 hover:bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
-                                    focus:outline-none focus:shadow-outline flex items-center justify-center"
-                  disabled={loading}
+                  className="uppercase text-sm font-bold tracking-wide bg-gray-500 hover:bg-[#67f529] text-gray-100 p-3 rounded-lg w-full 
+                                    focus:outline-none focus:shadow-outline"
                 >
-                  {loading ? (
-                    <svg
-                      className="animate-spin h-5 w-5 mr-3 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                      ></path>
-                    </svg>
-                  ) : (
-                    'Send Message'
-                  )}
+                  Send Message
                 </button>
               </div>
             </div>
           </form>
-          <div className="w-full  lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-400 rounded-2xl hidden md:block">
+          <div className="w-full  lg:translate-y-[-8rem] lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-900 rounded-2xl hidden lg:block">
             <div className="flex flex-col text-white">
-              <div className="flex my-4 w-2/3 lg:w-3/4">
+              <div className="flex my-4 w-3/3 lg:w-5/5">
                 <div className="flex flex-col">
                   <i className="fas fa-map-marker-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
                   <h2 className="text-2xl">Office Address</h2>
-                  <p className="text-gray-100">Office # 212, Arzoo Building,<br />
+                  <p className="text-gray-100"># 212, Arzoo Building,
                     Al Quasis 2, Dubai UAE.
                   </p>
                 </div>
               </div>
 
-              <div className="flex my-4 w-2/3 lg:w-1/2">
+              <div className="flex my-4 w-3/3 lg:w-2/2">
                 <div className="flex flex-col">
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
 
                 <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-100">Tel: +971 55 305 3964</p>
-                  <p className="text-gray-100">WhatsApp: +971 55 305 39641</p>
-
-                  <div className='mt-5'>
-                    <h2 className="text-2xl">Send an E-mail</h2>
-                    <div className="mt-2">
-                      <a href='mailto:enquires@exceedme.com' className="block text-gray-100">enquires@exceedme.com</a>
-                      <a href='mailto:helpdesk@exceedme.com' className="block text-gray-100">helpdesk@exceedme.com</a>
-                    </div>
+                  <h2 className="text-2xl">Contact US</h2>
+                  <p className="text-gray-100">Tel: +971 55 305 396</p>
+                  <div className="flex items-center text-gray-100">
+                    {/* <BsWhatsapp className="mr-2 w-4" /> */}
+                    <a href="https://wa.me/+971555696711" target='_blank'>
+                    <img src={whats} alt="" className='w-7 h-7 mr-1' /></a>
+                    <a href="https://wa.me/+971555696711" target='_blank'>
+                    <span>+971 555 696 711</span></a>
                   </div>
 
+                  <div className="mt-5">
+                    <h2 className="text-2xl">Send an E-mail</h2>
+                    <a href="mailto:enquiries@exceedme.com" className="block text-gray-100">enquiries@exceedme.com</a>
+                    <a href="mailto:helpdesk@exceedme.com" className="block text-gray-100">helpdesk@exceedme.com</a>
+                  </div>
                 </div>
+
               </div>
 
               <div className="flex my-4 w-2/3 lg:w-1/2">
@@ -260,4 +255,4 @@ const Sales = () => {
   );
 }
 
-export default Sales;
+export default Contact;
