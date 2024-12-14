@@ -176,7 +176,11 @@ function About() {
               </li>
               <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
-                Multi-Layer Firewall, Remote Connectivity and VPN Solutions
+                Multi-Layer Firewall
+              </li>
+              <li className="text-xl text-black flex items-start ml-4">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Remote Connectivity and VPN Solutions
               </li>
               <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
@@ -204,7 +208,11 @@ function About() {
               </li>
               <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
-                IT Network Security, Network Documentation & Base lining
+                IT Network Security, 
+              </li>
+              <li className="text-xl text-black flex items-start ml-4">
+                <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
+                Network Documentation & Base lining
               </li>
               <li className="text-xl text-black flex items-start ml-4">
                 <span className="mr-4 text-2xl" style={{ position: 'relative', left: '0' }}>➣</span>
