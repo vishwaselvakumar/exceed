@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getServiceById } from "../store/serviceCard/serviceCard";
 import img1 from "../images/servicescard/service1.jpeg";
 import img2 from "../images/servicescard/service2.jpeg";
@@ -21,6 +21,7 @@ import img16 from "../images/it & services.jpeg";
 import img17 from "../images/backup.jpg";
 
 function DynamicServicePage() {
+  const navigate = useNavigate();  // Hook to navigate programmatically
   const { id } = useParams();
   const dispatch = useDispatch();
   const { service, loading, error } = useSelector((state) => state.serviceCard);
@@ -48,9 +49,9 @@ function DynamicServicePage() {
     "66a37048e2445cfea42cb8e0": img14,
   };
 
-  // if (loading) {
-  //     return <div>Loading...</div>;
-  // }
+  const handleCancel = () => {
+    navigate('/services');  // Redirect to the specialization page
+  };
 
   if (error) {
     return <h1 className="text-red-500 text-xl text-center">Error: {error}</h1>;
@@ -63,57 +64,43 @@ function DynamicServicePage() {
   const img = imageMap[id] || service.imageurl;
 
   return (
-    <section class="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">
-      <section class="px-10 md:p-0 shadow-2xl w-90">
-        {/* <img
-          class="w-full h-64"
+    <section className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0 relative">
+      
+      {/* Cancel Button */}
+      
+
+      <section className="px-10 md:p-0 shadow-2xl w-90">
+    <button
+    onClick={handleCancel}
+    className="absolute top-4 left-4 bg-green-600 text-white rounded-full px-4 py-2 shadow-lg hover:bg-gray-200 hover:text-black"
+    >
+    ←   Back
+    </button>
+        <img
+          className="w-auto max-w-full h-64 mx-auto"
           src={service.imageurl || ""}
           alt={service.heading}
-        /> */}
+        />
 
-
-<img
-  className="w-auto max-w-full h-64 mx-auto"
-  src={service.imageurl || ""}
-  alt={service.heading}
-/>
-
-
-        <div class="content bg-white p-12 w-full h-full">
-          <h2 class="text-3xl font-semibold">{service.heading}</h2>
-          <p class=" my-3 text-justify font-medium text-gray-700 leading-relaxed whitespace-pre-wrap text-lg">
+        <div className="content bg-white p-12 w-full h-full">
+          <h2 className="text-3xl font-semibold">{service.heading}</h2>
+          <p className="my-3 text-justify font-medium text-gray-700 leading-relaxed text-lg whitespace-pre-wrap">
             {service.description?.paragraph}
           </p>
-          {/* <ul className={service.description?.listType==='decimal'?"list-decimal":"list-disc"}>
-            {
-              service.description?.features.map((item)=>(
-                <li>{item}</li>
-              ))
-            }
-          </ul> */}
 
-
-<ul className="list-none">
-  {service.description?.features.map((item, index) => (
-    <li
-      key={index}
-      className="flex items-center text-lg" // Flexbox for aligning arrow and text
-    >
-      {index !== 0 && <span className="ml-5"> ➣</span>} {/* Add arrow only for items after the first */}
-      <span
-        className={`${index === 0 ? 'font-extrabold' : 'ml-4'}`} // Bold text for the first item, and margin-left for others
-      >
-        {item}
-      </span>
-    </li>
-  ))}
-</ul>
-
-
-
-
+          <ul className="list-none">
+            {service.description?.features.map((item, index) => (
+              <li key={index} className="flex items-center text-lg">
+                {index !== 0 && <span className="ml-5"> ➣</span>}
+                <span className={`${index === 0 ? 'font-extrabold' : 'ml-4'}`}>
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
     </section>
   );
 }
