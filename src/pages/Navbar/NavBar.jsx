@@ -1,61 +1,72 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { IoMdArrowBack } from 'react-icons/io';  // Import the missing icon
+import { IoMdArrowBack } from 'react-icons/io';
 import logo from "../../images/pics/Logo.png";
 import './nav.css';
 
 const NavBar = () => {
-    const [top, setTop] = useState(true);
-    const [isOpen, setIsOpen] = useState(false);
-
-    // Handle menu toggle
-    const handleClick = () => setIsOpen(!isOpen);
-
-    // Close menu when a link is clicked
-    const handleClose = () => setIsOpen(false);
-
-    // Handle scroll event for sticky navbar
-    useEffect(() => {
-        const scrollHandler = () => {
-            setTop(window.scrollY <= 10);
-        };
-
-        window.addEventListener('scroll', scrollHandler);
-        return () => window.removeEventListener('scroll', scrollHandler);
-    }, []);
-
-    // Handle previous section navigation
     const navigate = useNavigate();
     const location = useLocation();
-    const sections = ["/", "/about", "/services", "/help"];
-    const [currentIndex, setCurrentIndex] = useState(0);
 
+    const [isOpen, setIsOpen] = useState(false);
+    const [showPrev, setShowPrev] = useState(true);
+    const [showNext, setShowNext] = useState(true);
+
+    // Toggle menu visibility
+    const handleClick = () => setIsOpen(!isOpen);
+    const handleClose = () => setIsOpen(false);
+
+    // Update button visibility based on the current route
     useEffect(() => {
         const currentPath = location.pathname;
-        const index = sections.findIndex((path) => path === currentPath);
-        setCurrentIndex(index !== -1 ? index : 0);
-    }, [location.pathname]);
+        if (currentPath === "/") {
+            setShowPrev(false); // Hide Previous on Home
+            setShowNext(true);  // Show Next
+        } else if (currentPath === "/about") {
+            setShowPrev(true);  // Show Previous
+            setShowNext(true);  // Show Next
+        } else if (currentPath === "/services") {
+            setShowPrev(true);  // Show Previous
+            setShowNext(true);  // Show Next
+        } else if (currentPath === "/sales") {
+            setShowPrev(true);  // Show Previous
+            setShowNext(false); // Hide Next on Contact
+        } else if (currentPath === "/help") {
+            setShowPrev(true);  // Show Previous
+            setShowNext(false); // Hide Next on Help
+        } else if (currentPath.startsWith("/servicePage")) {
+            setShowPrev(true);  // Show Previous
+            setShowNext(true);  // Show Next
+        }
+    }, [location]);
 
-    // Handle previous section
     const handlePrevious = () => {
-        const prevIndex = (currentIndex - 1 + sections.length) % sections.length;
-        navigate(sections[prevIndex]);
+        const currentPath = location.pathname;
+        if (currentPath === "/about") navigate("/");
+        else if (currentPath === "/services") navigate("/about");
+        else if (currentPath === "/sales") navigate("/services");
+        else if (currentPath === "/help") navigate("/services"); // Navigate to /services from /help
+        else if (currentPath.startsWith("/servicePage")) navigate("/services");
     };
 
-    // Handle next section
     const handleNext = () => {
-        const nextIndex = (currentIndex + 1) % sections.length;
-        navigate(sections[nextIndex]);
+        const currentPath = location.pathname;
+        if (currentPath === "/") navigate("/about");
+        else if (currentPath === "/about") navigate("/services");
+        else if (currentPath === "/services") navigate("/sales");
+        else if (currentPath.startsWith("/servicePage")) navigate("/services");
     };
 
     return (
         <>
             <nav className="bg-white border-gray-200 py-2.5 sticky top-0 z-50">
                 <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+                    {/* Logo */}
                     <Link to="/" className="flex items-center">
                         <img src={logo} className="mr-3 sm:h-[5rem] h-[20px]" alt="Logo" />
                     </Link>
 
+                    {/* Mobile menu toggle */}
                     <div className="flex items-center lg:order-2">
                         <button
                             onClick={handleClick}
@@ -71,6 +82,7 @@ const NavBar = () => {
                         </button>
                     </div>
 
+                    {/* Menu */}
                     <div className={`lg:flex items-center justify-between w-full lg:w-auto ${isOpen ? '' : 'hidden'}`} id="mobile-menu">
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-10 lg:mt-0 text-center sm:text-none text-xl">
                             <li>
@@ -103,7 +115,7 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/help"
+                                    to="/sales"
                                     onClick={handleClose}
                                     className={({ isActive }) => `block py-2 pl-3 pr-4 rounded lg:bg-transparent lg:p-0 ${isActive ? 'text-green-600 underline decoration-4 underline-offset-8' : 'text-gray-700'}`}
                                 >
@@ -116,22 +128,15 @@ const NavBar = () => {
             </nav>
 
             <section className="py-3 bg-green-500 text-black text-center px-10 relative z-60">
-
                 {/* Previous Button */}
-                <button
-                    onClick={handlePrevious}
-                    className={`absolute top-1/2 transform -translate-y-1/2 left-4 bg-green-200 text-black px-6 py-2 rounded-lg hover:bg-green-600 border border-black ${currentIndex === 0 ? "hidden" : ""}`}
-                >
-                    <IoMdArrowBack />
-                </button>
-
-                {/* Next Button */}
-                <button
-                    onClick={handleNext}
-                    className={`absolute top-1/2 transform -translate-y-1/2 right-4 bg-green-200 text-black px-6 py-2 rounded-lg hover:bg-green-600 border border-black  ${currentIndex === sections.length - 1 ? "hidden" : ""}`}
-                >
-                    <IoMdArrowBack style={{ transform: "rotate(180deg)" }} />
-                </button>
+                {showPrev && (
+                    <button
+                        onClick={handlePrevious}
+                        className="absolute top-1/2 transform -translate-y-1/2 left-4 bg-green-200 text-black px-6 py-2 rounded-lg hover:bg-green-600 border border-black"
+                    >
+                        <IoMdArrowBack />
+                    </button>
+                )}
 
                 {/* Centered Text */}
                 <div className="flex justify-center items-center text-sm mt-2">
@@ -140,8 +145,16 @@ const NavBar = () => {
                     </p>
                 </div>
 
+                {/* Next Button */}
+                {showNext && (
+                    <button
+                        onClick={handleNext}
+                        className="absolute top-1/2 transform -translate-y-1/2 right-4 bg-green-200 text-black px-6 py-2 rounded-lg hover:bg-green-600 border border-black"
+                    >
+                        <IoMdArrowBack style={{ transform: "rotate(180deg)" }} />
+                    </button>
+                )}
             </section>
-
         </>
     );
 };

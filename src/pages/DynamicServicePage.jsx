@@ -19,7 +19,7 @@ import img14 from "../images/servicescard/service14.png";
 import img15 from "../images/lanwan.jpg";
 import img16 from "../images/it & services.jpeg";
 import img17 from "../images/backup.jpg";
-
+import logo from "../images/pics/Logo.png"
 function DynamicServicePage() {
   const navigate = useNavigate();  // Hook to navigate programmatically
   const { id } = useParams();
@@ -58,24 +58,29 @@ function DynamicServicePage() {
   }
 
   if (!service) {
-    return <div>No service found</div>;
-  }
+    return (
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+            <img className="w-60 h-60" src={logo} alt="Loading..." />
+        </div>
+    );
+}
+
 
   const img = imageMap[id] || service.imageurl;
 
   return (
     <section className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0 relative">
-      
+
       {/* Cancel Button */}
-      
+
 
       <section className="px-10 md:p-0 shadow-2xl w-90">
-    <button
-    onClick={handleCancel}
-    className="absolute top-4 left-4 bg-green-600 text-white rounded-full px-4 py-2 shadow-lg hover:bg-gray-200 hover:text-black"
-    >
-    ←   Back
-    </button>
+        {/* <button
+          onClick={handleCancel}
+          className="absolute top-4 left-4 bg-green-600 text-white rounded-full px-4 py-2 shadow-lg hover:bg-gray-200 hover:text-black"
+        >
+          ←   Back
+        </button> */}
         <img
           className="w-auto max-w-full h-64 mx-auto"
           src={service.imageurl || ""}
